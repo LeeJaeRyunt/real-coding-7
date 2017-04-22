@@ -28,6 +28,33 @@ public class Evaluator {
             }
          }
 
-         return "NOTHING";
+
+
+
+    Map<Integer, Integer> tempMap1 = new HashMap<Integer, Integer>();
+    for(Card card : cardList) {
+        if (tempMap1.containsKey(card.getRank())) {
+            Integer count = tempMap1.get(card.getRank());
+            count = new Integer(count.intValue() + 1);
+            tempMap1.put(card.getRank(), count);
+        } else {
+            tempMap1.put(card.getRank(), new Integer(1));
+        }
+        }
+        for ( Integer key : tempMap1.keySet())
+
+    {
+        if (tempMap1.get(key) == 1) {
+            return "ONE PAIR";
+        }
+    }
+    
+    return "NOTHING";
+
+
     }
 }
+
+
+
+
